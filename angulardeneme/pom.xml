@@ -35,7 +35,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency><!-- Bunun ne olduğunu bilmiyom -->
+        <dependency><!-- Bu gerekli-->
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
