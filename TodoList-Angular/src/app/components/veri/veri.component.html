@@ -1,0 +1,11 @@
+<div class="todo-input-wrapper">
+  <input class="girdi" type="text" [class.yok]="todoText==''" [(ngModel)]="todoText">
+  <button *ngIf="todoText !=''" class="bt bt-primary" (click)="sendValue()" >Not Ekle </button>
+</div>
+<div *ngFor="let list of liste" class="list-elm todo-wrapper"
+     (click)="checked(list.id, !list.checked)">
+  <button class="removeTodo " (click)="removeTodo(list.id) " > Remove </button>
+
+  <span  class="yazi"  [class.checkedTodo]="list.checked">{{list.text}}</span>
+
+</div>

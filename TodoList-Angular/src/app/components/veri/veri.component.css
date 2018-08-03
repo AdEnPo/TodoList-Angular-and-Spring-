@@ -1,0 +1,71 @@
+.todo-wrapper{
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.removeTodo{
+  margin-right: 20px;
+  margin-bottom: 10px;
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px 13px 8px 13px ;
+
+  color: rgba(203,20,32,1);
+  background-color: transparent;
+}
+.removeTodo:hover{
+  background-color: rgba(203,20,32,1);
+  color: white;
+  border-color:rgba(203,20,32,1) ;
+}
+.checkedTodo{
+  text-decoration:line-through ;
+}
+.list-elm{
+  border-bottom: 1px solid #efefef  ;
+}
+.todo-input-wrapper{
+  margin-bottom: 20px;
+}
+.bt{
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+.bt-primary{
+  color: darkcyan;
+  border-color: darkcyan;
+  background-color: transparent;
+}
+.bt-primary:hover{
+  background-color: darkcyan;
+  color: white;
+}
+.girdi{
+  width: 80%;
+  border: none;
+  border-top: 2px solid darkcyan;
+  border-bottom: 2px solid darkcyan;
+  margin-right: 10px;
+  padding: 5px;
+  line-height: 17px;
+}
+.girdi:focus{
+  outline: none;
+  border: none;
+  border-top: 2px solid darkcyan;
+  border-bottom: 2px solid darkcyan;
+}
+.yok{
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}

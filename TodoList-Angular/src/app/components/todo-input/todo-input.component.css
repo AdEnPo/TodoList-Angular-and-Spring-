@@ -1,0 +1,38 @@
+.todo-input-wrapper{
+  margin-bottom: 20px;
+}
+.btn{
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+.btn-primary{
+  color: darkcyan;
+  border-color: darkcyan;
+  background-color: transparent;
+}
+.btn-primary:hover{
+  background-color: darkcyan;
+  color: white;
+}
+input{
+  width: 80%;
+  border: none;
+  border-top: 2px solid darkcyan;
+  border-bottom: 2px solid darkcyan;
+  margin-right: 10px;
+  padding: 5px;
+  line-height: 17px;
+}
+input:focus{
+  outline: none;
+  border: none;
+  border-top: 2px solid darkcyan;
+  border-bottom: 2px solid darkcyan;
+
+}
+
