@@ -27,11 +27,14 @@ public class WebRestController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
 
-    //veri koymak
+        //veri koymak
+        }
     @RequestMapping("/putData")
     public void putData(@RequestBody Todo todo) {
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS NOTLAR (id int identity (1,1) primary key ," +
+                " text VARCHAR(250) NOT NULL ," +
+                "checked INT )");
         jdbcTemplate.execute("INSERT INTO NOTLAR(text,checked) VALUES ('" + todo.getText() + "'" +
                 "," + booleanToInt(todo.getChecked()) + ")");
     }
@@ -39,7 +42,7 @@ public class WebRestController {
     //veri çekmek
     @RequestMapping("/getData")
     public List<Todo> getData() {
-        List<Todo> query = jdbcTemplate.query("SELECT * FROM NOTLAR", new RowMapper<Todo>() {
+        List<Todo> query = jdbcTemplate.query("SELECT * FROM NOTLAR WHERE CHECKED=0", new RowMapper<Todo>() {
             @Override
             public Todo mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Todo todo = new Todo();
@@ -67,6 +70,26 @@ public class WebRestController {
     @RequestMapping("/updateData/{id}/{checked}")
     public void updateData(@PathVariable("id") int id, @PathVariable("checked") boolean checked) {
         jdbcTemplate.execute("UPDATE NOTLAR SET CHECKED=" + booleanToInt(checked) + " WHERE id=" + id);
+    }
+
+    @RequestMapping("/getChecked")
+    public List<Todo> getChecked(){
+        List<Todo> query = jdbcTemplate.query("SELECT * FROM NOTLAR WHERE CHECKED=1", new RowMapper<Todo>() {
+            @Override
+            public Todo mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Todo todo = new Todo();
+                todo.setId(rs.getInt("id"));
+                todo.setText(rs.getString("text"));
+                //todo.setChecked(rs.getInt("checked"));
+                if (rs.getInt("checked") == 1) {
+                    todo.setChecked(true);
+                } else {
+                    todo.setChecked(false);
+                }
+                return todo;
+            }
+        });
+        return query;
     }
 
     //Elle veri ekleme

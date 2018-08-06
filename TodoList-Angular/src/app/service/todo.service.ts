@@ -24,6 +24,8 @@ export class TodoService {
 
   checked(id, checked: boolean) {
     return this.http.patch('http://localhost:8080/updateData/' + id + '/' + checked, null);
-
+  }
+  getChecked(): Observable<any> {
+    return this.http.get('http://localhost:8080/getChecked');
   }
 }
