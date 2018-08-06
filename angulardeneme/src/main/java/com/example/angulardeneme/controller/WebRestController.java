@@ -80,7 +80,6 @@ public class WebRestController {
                 Todo todo = new Todo();
                 todo.setId(rs.getInt("id"));
                 todo.setText(rs.getString("text"));
-                //todo.setChecked(rs.getInt("checked"));
                 if (rs.getInt("checked") == 1) {
                     todo.setChecked(true);
                 } else {
